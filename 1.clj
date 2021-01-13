@@ -10,6 +10,14 @@
     )
 )
 
+(defn task-1-loop
+    [chars n lst last_char cur_char deep res]
+    (cond
+        (= last_char cur_char) res
+        true (task-1-deep chars n (cons cur_char lst) cur_char (inc deep) res)
+    )
+)
+
 (defn task-1-deep
     [chars n lst last_char deep res]
     (cond
@@ -17,14 +25,6 @@
         true (my-reduce chars res (fn [l_res l_cur_char]
             (task-1-loop chars n lst last_char l_cur_char deep l_res)
         ))
-    )
-)
-
-(defn task-1-loop
-    [chars n lst last_char cur_char deep res]
-    (cond
-        (= last_char cur_char) res
-        true (task-1-deep chars n (cons cur_char lst) cur_char (inc deep) res)
     )
 )
 
